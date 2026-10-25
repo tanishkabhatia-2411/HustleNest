@@ -1,0 +1,212 @@
+/* HustleNest Global Design System Tokens & Light/Dark Mode Palette */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* LIGHT MODE PALETTE (Default) */
+  --primary-color: #4338CA;
+  --primary-hover: #3730A3;
+  --primary-light: #EEF2FF;
+
+  --accent-color: #10B981;
+  --accent-hover: #059669;
+  --accent-light: #ECFDF5;
+
+  --bg-main: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-secondary: #F1F5F9;
+  --bg-nav: rgba(255, 255, 255, 0.9);
+
+  --text-main: #111827;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+
+  --border-color: #E2E8F0;
+  --border-dark: #CBD5E1;
+
+  --status-success-bg: #DCFCE7;
+  --status-success-text: #16A34A;
+  --status-warning-bg: #FEF3C7;
+  --status-warning-text: #D97706;
+  --status-error-bg: #FEE2E2;
+  --status-error-text: #DC2626;
+
+  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* DARK MODE PALETTE */
+[data-theme="dark"] {
+  --primary-color: #818CF8;
+  --primary-hover: #A5B4FC;
+  --primary-light: #1E1B4B;
+
+  --accent-color: #34D399;
+  --accent-hover: #6EE7B7;
+  --accent-light: #064E3B;
+
+  --bg-main: #0B1120;
+  --bg-surface: #111827;
+  --bg-surface-secondary: #1E293B;
+  --bg-nav: rgba(17, 24, 39, 0.9);
+
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-light: #64748B;
+
+  --border-color: #334155;
+  --border-dark: #475569;
+
+  --status-success-bg: #064E3B;
+  --status-success-text: #4ADE80;
+  --status-warning-bg: #451A03;
+  --status-warning-text: #FBBF24;
+  --status-error-bg: #450A0A;
+  --status-error-text: #F87171;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* @MEDIA PRINT STYLES FOR PDF / PRINT GENERATION */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  body,
+  html {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+  }
+
+  /* Hide everything except the CV printable area */
+  .navbar,
+  .footer,
+  .btn,
+  .no-print,
+  .theme-toggle-btn,
+  .modal-overlay,
+  .mobile-drawer-backdrop,
+  .mobile-drawer-content,
+  .search-bar-wrapper,
+  .filter-panel,
+  .cv-actions-bar,
+  header,
+  footer,
+  nav {
+    display: none !important;
+  }
+
+  .app-container,
+  .main-content,
+  .generate-cv-page,
+  .section,
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* CV edit layout: hide the form, only print the preview */
+  .cv-edit-layout {
+    display: block !important;
+  }
+
+  .cv-form-wrapper {
+    display: none !important;
+  }
+
+  .cv-preview-sticky {
+    position: static !important;
+    top: auto !important;
+  }
+
+  .cv-preview-container,
+  .cv-printable-area {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    page-break-inside: avoid;
+  }
+
+  /* Ensure links print with href visible */
+  a[href]::after {
+    content: '';
+  }
+}
